@@ -69,6 +69,14 @@ namespace PaymentFeeCalculator
         {
             txtTarifaPorcentaje.Text = "17.5";
             txtTarifaFija.Text = "0";
+            rbTresMSI.Text = "3 MSI = N/A";
+            rbTresMSI.Tag = "0";
+            rbSeisMSI.Text = "6 MSI = N/A";
+            rbSeisMSI.Tag = "0";
+            rbNueveMSI.Text = "9 MSI = N/A";
+            rbNueveMSI.Tag = "0";
+            rbDoceMSI.Text = "12 MSI = N/A";
+            rbDoceMSI.Tag = "0";
             cbMSI.Enabled = false;
             AplicaIVA = false;
             txtCantidadPagada_ValueChanged(sender, e);
