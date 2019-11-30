@@ -35,6 +35,7 @@
             this.btnMercadoPago = new System.Windows.Forms.Button();
             this.btnMercadoLibre = new System.Windows.Forms.Button();
             this.btnSenorPago = new System.Windows.Forms.Button();
+            this.btnPaypal = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.gbCalculadoraComisiones = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -62,7 +63,6 @@
             this.txtTarifaPorcentaje = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnPaypal = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbCalculadoraComisiones.SuspendLayout();
@@ -161,6 +161,17 @@
             this.btnSenorPago.TabIndex = 2;
             this.btnSenorPago.UseVisualStyleBackColor = true;
             this.btnSenorPago.Click += new System.EventHandler(this.btnSenorPago_Click);
+            // 
+            // btnPaypal
+            // 
+            this.btnPaypal.BackgroundImage = global::PaymentFeeCalculator.Properties.Resources.logo_paypal;
+            this.btnPaypal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPaypal.Location = new System.Drawing.Point(12, 176);
+            this.btnPaypal.Name = "btnPaypal";
+            this.btnPaypal.Size = new System.Drawing.Size(152, 45);
+            this.btnPaypal.TabIndex = 1;
+            this.btnPaypal.UseVisualStyleBackColor = true;
+            this.btnPaypal.Click += new System.EventHandler(this.btnPaypal_Click);
             // 
             // panel3
             // 
@@ -529,17 +540,6 @@
             this.label5.Size = new System.Drawing.Size(149, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Porcentaje del proveedor (%): ";
-            // 
-            // btnPaypal
-            // 
-            this.btnPaypal.BackgroundImage = global::PaymentFeeCalculator.Properties.Resources.logo_paypal;
-            this.btnPaypal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPaypal.Location = new System.Drawing.Point(12, 176);
-            this.btnPaypal.Name = "btnPaypal";
-            this.btnPaypal.Size = new System.Drawing.Size(152, 45);
-            this.btnPaypal.TabIndex = 1;
-            this.btnPaypal.UseVisualStyleBackColor = true;
-            this.btnPaypal.Click += new System.EventHandler(this.btnPaypal_Click);
             // 
             // frmMain
             // 
