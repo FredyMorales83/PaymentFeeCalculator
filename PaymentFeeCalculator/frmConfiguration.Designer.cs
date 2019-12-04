@@ -261,11 +261,6 @@
             this.nudPaypalPorciento.Size = new System.Drawing.Size(120, 20);
             this.nudPaypalPorciento.TabIndex = 0;
             this.nudPaypalPorciento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudPaypalPorciento.Value = new decimal(new int[] {
-            395,
-            0,
-            0,
-            131072});
             // 
             // nudPaypalFija
             // 
@@ -285,11 +280,6 @@
             this.nudPaypalFija.Size = new System.Drawing.Size(76, 20);
             this.nudPaypalFija.TabIndex = 8;
             this.nudPaypalFija.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudPaypalFija.Value = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
             // 
             // cbPaypalIVA
             // 
@@ -350,11 +340,6 @@
             this.nudSenorPorciento.Size = new System.Drawing.Size(120, 20);
             this.nudSenorPorciento.TabIndex = 10;
             this.nudSenorPorciento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudSenorPorciento.Value = new decimal(new int[] {
-            36,
-            0,
-            0,
-            65536});
             // 
             // cbMercadolibreIVA
             // 
@@ -402,11 +387,6 @@
             this.nudMercadolibrePorciento.Size = new System.Drawing.Size(120, 20);
             this.nudMercadolibrePorciento.TabIndex = 13;
             this.nudMercadolibrePorciento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudMercadolibrePorciento.Value = new decimal(new int[] {
-            175,
-            0,
-            0,
-            65536});
             // 
             // nudMercadopagoIVA
             // 
@@ -437,11 +417,6 @@
             this.nudMercadopagoFija.Size = new System.Drawing.Size(76, 20);
             this.nudMercadopagoFija.TabIndex = 17;
             this.nudMercadopagoFija.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudMercadopagoFija.Value = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
             // 
             // nudMercadopagoPorciento
             // 
@@ -461,11 +436,6 @@
             this.nudMercadopagoPorciento.Size = new System.Drawing.Size(120, 20);
             this.nudMercadopagoPorciento.TabIndex = 16;
             this.nudMercadopagoPorciento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudMercadopagoPorciento.Value = new decimal(new int[] {
-            319,
-            0,
-            0,
-            131072});
             // 
             // cbClipIVA
             // 
@@ -515,11 +485,6 @@
             this.nudClipPorciento.Size = new System.Drawing.Size(120, 20);
             this.nudClipPorciento.TabIndex = 19;
             this.nudClipPorciento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudClipPorciento.Value = new decimal(new int[] {
-            46,
-            0,
-            0,
-            65536});
             // 
             // nudClip3MSI
             // 
@@ -539,11 +504,6 @@
             this.nudClip3MSI.Size = new System.Drawing.Size(71, 20);
             this.nudClip3MSI.TabIndex = 27;
             this.nudClip3MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudClip3MSI.Value = new decimal(new int[] {
-            45,
-            0,
-            0,
-            65536});
             // 
             // nudMercadopago3MSI
             // 
@@ -563,11 +523,6 @@
             this.nudMercadopago3MSI.Size = new System.Drawing.Size(71, 20);
             this.nudMercadopago3MSI.TabIndex = 26;
             this.nudMercadopago3MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudMercadopago3MSI.Value = new decimal(new int[] {
-            397,
-            0,
-            0,
-            131072});
             // 
             // nudMercadoLibre3MSI
             // 
@@ -606,11 +561,6 @@
             this.nudSenor3MSI.Size = new System.Drawing.Size(71, 20);
             this.nudSenor3MSI.TabIndex = 24;
             this.nudSenor3MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudSenor3MSI.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
             // 
             // nudPaypal3MSI
             // 
@@ -630,11 +580,6 @@
             this.nudPaypal3MSI.Size = new System.Drawing.Size(71, 20);
             this.nudPaypal3MSI.TabIndex = 23;
             this.nudPaypal3MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudPaypal3MSI.Value = new decimal(new int[] {
-            455,
-            0,
-            0,
-            131072});
             // 
             // label5
             // 
@@ -664,11 +609,6 @@
             this.nudClip6MSI.Size = new System.Drawing.Size(71, 20);
             this.nudClip6MSI.TabIndex = 33;
             this.nudClip6MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudClip6MSI.Value = new decimal(new int[] {
-            75,
-            0,
-            0,
-            65536});
             // 
             // nudMercadopago6MSI
             // 
@@ -688,11 +628,6 @@
             this.nudMercadopago6MSI.Size = new System.Drawing.Size(71, 20);
             this.nudMercadopago6MSI.TabIndex = 32;
             this.nudMercadopago6MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudMercadopago6MSI.Value = new decimal(new int[] {
-            647,
-            0,
-            0,
-            131072});
             // 
             // nudMercadolibre6MSI
             // 
@@ -731,11 +666,6 @@
             this.nudSenor6MSI.Size = new System.Drawing.Size(71, 20);
             this.nudSenor6MSI.TabIndex = 30;
             this.nudSenor6MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudSenor6MSI.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
             // 
             // nudPaypal6MSI
             // 
@@ -755,11 +685,6 @@
             this.nudPaypal6MSI.Size = new System.Drawing.Size(71, 20);
             this.nudPaypal6MSI.TabIndex = 29;
             this.nudPaypal6MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudPaypal6MSI.Value = new decimal(new int[] {
-            725,
-            0,
-            0,
-            131072});
             // 
             // label6
             // 
@@ -789,11 +714,6 @@
             this.nudClip9MSI.Size = new System.Drawing.Size(71, 20);
             this.nudClip9MSI.TabIndex = 39;
             this.nudClip9MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudClip9MSI.Value = new decimal(new int[] {
-            99,
-            0,
-            0,
-            65536});
             // 
             // nudMercadopago9MSI
             // 
@@ -813,11 +733,6 @@
             this.nudMercadopago9MSI.Size = new System.Drawing.Size(71, 20);
             this.nudMercadopago9MSI.TabIndex = 38;
             this.nudMercadopago9MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudMercadopago9MSI.Value = new decimal(new int[] {
-            924,
-            0,
-            0,
-            131072});
             // 
             // nudMercadolibre9MSI
             // 
@@ -856,11 +771,6 @@
             this.nudSenor9MSI.Size = new System.Drawing.Size(71, 20);
             this.nudSenor9MSI.TabIndex = 36;
             this.nudSenor9MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudSenor9MSI.Value = new decimal(new int[] {
-            9,
-            0,
-            0,
-            0});
             // 
             // nudPaypal9MSI
             // 
@@ -880,11 +790,6 @@
             this.nudPaypal9MSI.Size = new System.Drawing.Size(71, 20);
             this.nudPaypal9MSI.TabIndex = 35;
             this.nudPaypal9MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudPaypal9MSI.Value = new decimal(new int[] {
-            1125,
-            0,
-            0,
-            131072});
             // 
             // label7
             // 
@@ -914,11 +819,6 @@
             this.nudClip12MSI.Size = new System.Drawing.Size(71, 20);
             this.nudClip12MSI.TabIndex = 45;
             this.nudClip12MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudClip12MSI.Value = new decimal(new int[] {
-            1195,
-            0,
-            0,
-            131072});
             // 
             // nudMercadopago12MSI
             // 
@@ -938,11 +838,6 @@
             this.nudMercadopago12MSI.Size = new System.Drawing.Size(71, 20);
             this.nudMercadopago12MSI.TabIndex = 44;
             this.nudMercadopago12MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudMercadopago12MSI.Value = new decimal(new int[] {
-            1231,
-            0,
-            0,
-            131072});
             // 
             // nudMercadolibre12MSI
             // 
@@ -981,11 +876,6 @@
             this.nudSenor12MSI.Size = new System.Drawing.Size(71, 20);
             this.nudSenor12MSI.TabIndex = 42;
             this.nudSenor12MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudSenor12MSI.Value = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
             // 
             // nudPaypal12MSI
             // 
@@ -1005,11 +895,6 @@
             this.nudPaypal12MSI.Size = new System.Drawing.Size(71, 20);
             this.nudPaypal12MSI.TabIndex = 41;
             this.nudPaypal12MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudPaypal12MSI.Value = new decimal(new int[] {
-            135,
-            0,
-            0,
-            65536});
             // 
             // label8
             // 
@@ -1049,11 +934,6 @@
             this.nudTasaIVA.Size = new System.Drawing.Size(76, 20);
             this.nudTasaIVA.TabIndex = 47;
             this.nudTasaIVA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudTasaIVA.Value = new decimal(new int[] {
-            16,
-            0,
-            0,
-            0});
             // 
             // btnGuardarConfiguracion
             // 
@@ -1065,6 +945,7 @@
             this.btnGuardarConfiguracion.TabIndex = 48;
             this.btnGuardarConfiguracion.Text = "Guardar Configuracion";
             this.btnGuardarConfiguracion.UseVisualStyleBackColor = false;
+            this.btnGuardarConfiguracion.Click += new System.EventHandler(this.btnGuardarConfiguracion_Click);
             // 
             // frmConfiguration
             // 
@@ -1121,7 +1002,9 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmConfiguration";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configurar % de comisión de Proveedores de pago";
+            this.Load += new System.EventHandler(this.frmConfiguration_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudPaypalPorciento)).EndInit();

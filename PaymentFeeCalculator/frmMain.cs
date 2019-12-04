@@ -251,6 +251,13 @@ namespace PaymentFeeCalculator
             }
         }
 
+        private void btnSystemConfiguration_Click(object sender, EventArgs e)
+        {
+            frmConfiguration frmConfiguration = new frmConfiguration();
+
+            frmConfiguration.ShowDialog();
+        }
+
         private void RadioButton_Click(object sender, EventArgs e)
         {
             txtCantidadPagada_ValueChanged(sender, e);

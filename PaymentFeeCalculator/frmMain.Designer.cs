@@ -37,6 +37,7 @@
             this.btnSenorPago = new System.Windows.Forms.Button();
             this.btnPaypal = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnSystemConfiguration = new System.Windows.Forms.Button();
             this.gbCalculadoraComisiones = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -65,6 +66,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.gbCalculadoraComisiones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -176,11 +178,22 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.btnSystemConfiguration);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(174, 153);
             this.panel3.TabIndex = 0;
+            // 
+            // btnSystemConfiguration
+            // 
+            this.btnSystemConfiguration.Location = new System.Drawing.Point(90, 13);
+            this.btnSystemConfiguration.Name = "btnSystemConfiguration";
+            this.btnSystemConfiguration.Size = new System.Drawing.Size(75, 43);
+            this.btnSystemConfiguration.TabIndex = 0;
+            this.btnSystemConfiguration.Text = "Configurar Tarifas";
+            this.btnSystemConfiguration.UseVisualStyleBackColor = true;
+            this.btnSystemConfiguration.Click += new System.EventHandler(this.btnSystemConfiguration_Click);
             // 
             // gbCalculadoraComisiones
             // 
@@ -555,10 +568,12 @@
             this.MaximumSize = new System.Drawing.Size(950, 550);
             this.MinimumSize = new System.Drawing.Size(950, 550);
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora De Comisiones De Pago";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.gbCalculadoraComisiones.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -618,6 +633,7 @@
         private System.Windows.Forms.NumericUpDown txtCantidadDeseada;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnSystemConfiguration;
     }
 }
 
