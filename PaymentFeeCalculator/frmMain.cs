@@ -11,10 +11,7 @@ using System.Windows.Forms;
 namespace PaymentFeeCalculator
 {
     public partial class frmMain : Form
-    {
-        //TODO
-        //Crear formulario de configuracion de porcentajes de comision por proveedor para ser leidos archivo de configuracion
-
+    {        
         //Leer porcentaje de IVA desde archivo de configuracion
         private decimal comisionAPagar, porcentajeIVA = 0;
         bool AplicaIVA = false;
@@ -27,96 +24,37 @@ namespace PaymentFeeCalculator
         private void frmMain_Load(object sender, EventArgs e)
         {
             panelMSI.Enabled = false;
+            porcentajeIVA = Properties.Settings.Default.TasaIVA;
         }
 
         private void btnPaypal_Click(object sender, EventArgs e)
         {
-            txtTarifaPorcentaje.Text = "3.95";
-            txtTarifaFija.Text = "4";
-            rbTresMSI.Text = "3 MSI = 4.55%";
-            rbTresMSI.Tag = "4.55";
-            rbSeisMSI.Text = "6 MSI = 7.25%";
-            rbSeisMSI.Tag = "7.25";
-            rbNueveMSI.Text = "9 MSI = 11.25%";
-            rbNueveMSI.Tag = "11.25";
-            rbDoceMSI.Text = "12 MSI = 13.5%";
-            rbDoceMSI.Tag = "13.5";
-            cbMSI.Enabled = true;
-            AplicaIVA = true;
-            txtCantidadPagada_ValueChanged(sender, e);
-            txtCantidadDeseada_ValueChanged(sender, e);
+            var paypalFees = Fee.GetPaypalFees();
+            SetProviderFees(paypalFees, sender, e, true);
         }
 
         private void btnSenorPago_Click(object sender, EventArgs e)
         {
-            txtTarifaPorcentaje.Text = "3.6";
-            txtTarifaFija.Text = "0";
-            rbTresMSI.Text = "3 MSI = 3%";
-            rbTresMSI.Tag = "3";
-            rbSeisMSI.Text = "6 MSI = 6%";
-            rbSeisMSI.Tag = "6";
-            rbNueveMSI.Text = "9 MSI = 9%";
-            rbNueveMSI.Tag = "9";
-            rbDoceMSI.Text = "12 MSI = 12%";
-            rbDoceMSI.Tag = "12";
-            cbMSI.Enabled = true;
-            AplicaIVA = true;
-            txtCantidadPagada_ValueChanged(sender, e);
-            txtCantidadDeseada_ValueChanged(sender, e);
+            var senorPagoFees = Fee.GetSenorPagoFees();
+            SetProviderFees(senorPagoFees, sender, e, true);
         }
 
         private void btnMercadoLibre_Click(object sender, EventArgs e)
         {
-            txtTarifaPorcentaje.Text = "17.5";
-            txtTarifaFija.Text = "0";
-            rbTresMSI.Text = "3 MSI = N/A";
-            rbTresMSI.Tag = "0";
-            rbSeisMSI.Text = "6 MSI = N/A";
-            rbSeisMSI.Tag = "0";
-            rbNueveMSI.Text = "9 MSI = N/A";
-            rbNueveMSI.Tag = "0";
-            rbDoceMSI.Text = "12 MSI = N/A";
-            rbDoceMSI.Tag = "0";
-            cbMSI.Enabled = false;
-            AplicaIVA = false;
-            txtCantidadPagada_ValueChanged(sender, e);
-            txtCantidadDeseada_ValueChanged(sender, e);
+            var mercadoLibreFees = Fee.GetMercadoLibreFees();
+            SetProviderFees(mercadoLibreFees, sender, e, false);
         }
 
         private void btnMercadoPago_Click(object sender, EventArgs e)
         {
-            txtTarifaPorcentaje.Text = "3.19";
-            txtTarifaFija.Text = "4";
-            rbTresMSI.Text = "3 MSI = 3.97%";
-            rbTresMSI.Tag = "3.97";
-            rbSeisMSI.Text = "6 MSI = 6.47%";
-            rbSeisMSI.Tag = "6.47";
-            rbNueveMSI.Text = "9 MSI = 9.24%";
-            rbNueveMSI.Tag = "9.24";
-            rbDoceMSI.Text = "12 MSI = 12.31%";
-            rbDoceMSI.Tag = "12.31";
-            cbMSI.Enabled = true;
-            AplicaIVA = true;
-            txtCantidadPagada_ValueChanged(sender, e);
-            txtCantidadDeseada_ValueChanged(sender, e);
+            var mercadoPagoFees = Fee.GetMercadoPagoFees();
+            SetProviderFees(mercadoPagoFees, sender, e, true);
         }
 
         private void btnClip_Click(object sender, EventArgs e)
         {
-            txtTarifaPorcentaje.Text = "3.6";
-            txtTarifaFija.Text = "0";
-            rbTresMSI.Text = "3 MSI = 4.5%";
-            rbTresMSI.Tag = "4.5";
-            rbSeisMSI.Text = "6 MSI = 7.5%";
-            rbSeisMSI.Tag = "7.5";
-            rbNueveMSI.Text = "9 MSI = 9.9%";
-            rbNueveMSI.Tag = "9.9";
-            rbDoceMSI.Text = "12 MSI = 11.95%";
-            rbDoceMSI.Tag = "11.95";
-            cbMSI.Enabled = true;
-            AplicaIVA = true;
-            txtCantidadPagada_ValueChanged(sender, e);
-            txtCantidadDeseada_ValueChanged(sender, e);
+            var clipFees = Fee.GetClipFees();
+            SetProviderFees(clipFees, sender, e, true);
         }
 
         private void cbMSI_CheckedChanged(object sender, EventArgs e)
@@ -163,24 +101,20 @@ namespace PaymentFeeCalculator
             else
             {
                 comisionMeses = 0;
+                txtCantidadDeseada.Minimum = 10;
             }
 
             decimal porcentajeComision = decimal.Parse(txtTarifaPorcentaje.Text) + comisionMeses;
 
             decimal tarifaFija = decimal.Parse(txtTarifaFija.Text);
 
-            decimal iva = AplicaIVA ? (porcentajeIVA = 16m / 100) : 0;
+            decimal iva = AplicaIVA ? (porcentajeIVA / 100) : 0;
 
-            comisionAPagar = ReverseFeeCalculator(txtCantidadDeseada.Value, porcentajeComision, tarifaFija, iva);
+            comisionAPagar = Fee.ReverseFeeCalculator(txtCantidadDeseada.Value, porcentajeComision, tarifaFija, iva);
 
             txtCantidadACobrar.Value = comisionAPagar;
             txtCantidadPagada.Value = comisionAPagar;
-        }
-
-        private decimal ReverseFeeCalculator(decimal value, decimal porcentajeComision, decimal tarifaFija, decimal iva)
-        {
-            return (value + tarifaFija * (1 + iva)) / (1 - porcentajeComision * (1 + iva) / 100);
-        }
+        }         
 
         private void txtCantidadPagada_ValueChanged(object sender, EventArgs e)
         {
@@ -222,19 +156,14 @@ namespace PaymentFeeCalculator
             decimal porcentajeComision = decimal.Parse(txtTarifaPorcentaje.Text) + comisionMeses;
             decimal tarifaFija = decimal.Parse(txtTarifaFija.Text);
 
-            decimal iva = AplicaIVA ? (porcentajeIVA = 16m / 100) : 0;
+            decimal iva = AplicaIVA ? (porcentajeIVA / 100) : 0;
 
-            comisionAPagar = FeeCalculator(txtCantidadPagada.Value, porcentajeComision, tarifaFija, iva);
+            comisionAPagar = Fee.FeeCalculator(txtCantidadPagada.Value, porcentajeComision, tarifaFija, iva);
 
             txtComisionAPagar.Value = comisionAPagar;
 
             txtCantidadARecibir.Value = txtCantidadPagada.Value - txtComisionAPagar.Value;
-        }
-
-        private decimal FeeCalculator(decimal value, decimal porcentajeComision, decimal tarifaFija, decimal iva)
-        {
-            return value * ((porcentajeComision / 100) * (1 + iva)) + tarifaFija * (1 + iva);
-        }
+        }        
 
         private void OnlyNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -263,5 +192,24 @@ namespace PaymentFeeCalculator
             txtCantidadPagada_ValueChanged(sender, e);
             txtCantidadDeseada_ValueChanged(sender, e);
         }
+
+        private void SetProviderFees((decimal providerPorciento, decimal providerFija, decimal provider3, decimal provider6, decimal provider9, decimal provider12, bool providerAplicaIVA) providerFees, object sender, EventArgs e, bool EnableMSI)
+        {
+            txtTarifaPorcentaje.Text = providerFees.providerPorciento.ToString();
+            txtTarifaFija.Text = providerFees.providerFija.ToString();
+            rbTresMSI.Text = $"3 MSI = {providerFees.provider3}%";
+            rbTresMSI.Tag = providerFees.provider3;
+            rbSeisMSI.Text = $"6 MSI = {providerFees.provider6}%";
+            rbSeisMSI.Tag = providerFees.provider6;
+            rbNueveMSI.Text = $"9 MSI = {providerFees.provider9}%";
+            rbNueveMSI.Tag = providerFees.provider9;
+            rbDoceMSI.Text = $"12 MSI = {providerFees.provider12}%";
+            rbDoceMSI.Tag = providerFees.provider12;
+            AplicaIVA = providerFees.providerAplicaIVA;
+            cbMSI.Enabled = EnableMSI;
+            txtCantidadPagada_ValueChanged(sender, e);
+            txtCantidadDeseada_ValueChanged(sender, e);
+        }
+
     }
 }

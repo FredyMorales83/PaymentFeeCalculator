@@ -43,13 +43,13 @@
             this.nudPaypalPorciento = new System.Windows.Forms.NumericUpDown();
             this.nudPaypalFija = new System.Windows.Forms.NumericUpDown();
             this.cbPaypalIVA = new System.Windows.Forms.CheckBox();
-            this.nudSenorIVA = new System.Windows.Forms.CheckBox();
+            this.cbSenorIVA = new System.Windows.Forms.CheckBox();
             this.nudSenorFija = new System.Windows.Forms.NumericUpDown();
             this.nudSenorPorciento = new System.Windows.Forms.NumericUpDown();
             this.cbMercadolibreIVA = new System.Windows.Forms.CheckBox();
-            this.nudMercadoLibreFija = new System.Windows.Forms.NumericUpDown();
+            this.nudMercadolibreFija = new System.Windows.Forms.NumericUpDown();
             this.nudMercadolibrePorciento = new System.Windows.Forms.NumericUpDown();
-            this.nudMercadopagoIVA = new System.Windows.Forms.CheckBox();
+            this.cbMercadopagoIVA = new System.Windows.Forms.CheckBox();
             this.nudMercadopagoFija = new System.Windows.Forms.NumericUpDown();
             this.nudMercadopagoPorciento = new System.Windows.Forms.NumericUpDown();
             this.cbClipIVA = new System.Windows.Forms.CheckBox();
@@ -57,7 +57,7 @@
             this.nudClipPorciento = new System.Windows.Forms.NumericUpDown();
             this.nudClip3MSI = new System.Windows.Forms.NumericUpDown();
             this.nudMercadopago3MSI = new System.Windows.Forms.NumericUpDown();
-            this.nudMercadoLibre3MSI = new System.Windows.Forms.NumericUpDown();
+            this.nudMercadolibre3MSI = new System.Windows.Forms.NumericUpDown();
             this.nudSenor3MSI = new System.Windows.Forms.NumericUpDown();
             this.nudPaypal3MSI = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
@@ -88,7 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPaypalFija)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSenorFija)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSenorPorciento)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMercadoLibreFija)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMercadolibreFija)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMercadolibrePorciento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMercadopagoFija)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMercadopagoPorciento)).BeginInit();
@@ -96,7 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudClipPorciento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudClip3MSI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMercadopago3MSI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMercadoLibre3MSI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMercadolibre3MSI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSenor3MSI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPaypal3MSI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudClip6MSI)).BeginInit();
@@ -292,16 +292,16 @@
             this.cbPaypalIVA.TabIndex = 9;
             this.cbPaypalIVA.UseVisualStyleBackColor = true;
             // 
-            // nudSenorIVA
+            // cbSenorIVA
             // 
-            this.nudSenorIVA.AutoSize = true;
-            this.nudSenorIVA.Checked = true;
-            this.nudSenorIVA.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.nudSenorIVA.Location = new System.Drawing.Point(746, 268);
-            this.nudSenorIVA.Name = "nudSenorIVA";
-            this.nudSenorIVA.Size = new System.Drawing.Size(15, 14);
-            this.nudSenorIVA.TabIndex = 12;
-            this.nudSenorIVA.UseVisualStyleBackColor = true;
+            this.cbSenorIVA.AutoSize = true;
+            this.cbSenorIVA.Checked = true;
+            this.cbSenorIVA.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbSenorIVA.Location = new System.Drawing.Point(746, 268);
+            this.cbSenorIVA.Name = "cbSenorIVA";
+            this.cbSenorIVA.Size = new System.Drawing.Size(15, 14);
+            this.cbSenorIVA.TabIndex = 12;
+            this.cbSenorIVA.UseVisualStyleBackColor = true;
             // 
             // nudSenorFija
             // 
@@ -350,24 +350,24 @@
             this.cbMercadolibreIVA.TabIndex = 15;
             this.cbMercadolibreIVA.UseVisualStyleBackColor = true;
             // 
-            // nudMercadoLibreFija
+            // nudMercadolibreFija
             // 
-            this.nudMercadoLibreFija.DecimalPlaces = 2;
-            this.nudMercadoLibreFija.Increment = new decimal(new int[] {
+            this.nudMercadolibreFija.DecimalPlaces = 2;
+            this.nudMercadolibreFija.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.nudMercadoLibreFija.Location = new System.Drawing.Point(327, 316);
-            this.nudMercadoLibreFija.Maximum = new decimal(new int[] {
+            this.nudMercadolibreFija.Location = new System.Drawing.Point(327, 316);
+            this.nudMercadolibreFija.Maximum = new decimal(new int[] {
             50,
             0,
             0,
             0});
-            this.nudMercadoLibreFija.Name = "nudMercadoLibreFija";
-            this.nudMercadoLibreFija.Size = new System.Drawing.Size(76, 20);
-            this.nudMercadoLibreFija.TabIndex = 14;
-            this.nudMercadoLibreFija.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudMercadolibreFija.Name = "nudMercadolibreFija";
+            this.nudMercadolibreFija.Size = new System.Drawing.Size(76, 20);
+            this.nudMercadolibreFija.TabIndex = 14;
+            this.nudMercadolibreFija.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // nudMercadolibrePorciento
             // 
@@ -388,16 +388,16 @@
             this.nudMercadolibrePorciento.TabIndex = 13;
             this.nudMercadolibrePorciento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // nudMercadopagoIVA
+            // cbMercadopagoIVA
             // 
-            this.nudMercadopagoIVA.AutoSize = true;
-            this.nudMercadopagoIVA.Checked = true;
-            this.nudMercadopagoIVA.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.nudMercadopagoIVA.Location = new System.Drawing.Point(746, 370);
-            this.nudMercadopagoIVA.Name = "nudMercadopagoIVA";
-            this.nudMercadopagoIVA.Size = new System.Drawing.Size(15, 14);
-            this.nudMercadopagoIVA.TabIndex = 18;
-            this.nudMercadopagoIVA.UseVisualStyleBackColor = true;
+            this.cbMercadopagoIVA.AutoSize = true;
+            this.cbMercadopagoIVA.Checked = true;
+            this.cbMercadopagoIVA.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbMercadopagoIVA.Location = new System.Drawing.Point(746, 370);
+            this.cbMercadopagoIVA.Name = "cbMercadopagoIVA";
+            this.cbMercadopagoIVA.Size = new System.Drawing.Size(15, 14);
+            this.cbMercadopagoIVA.TabIndex = 18;
+            this.cbMercadopagoIVA.UseVisualStyleBackColor = true;
             // 
             // nudMercadopagoFija
             // 
@@ -524,24 +524,24 @@
             this.nudMercadopago3MSI.TabIndex = 26;
             this.nudMercadopago3MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // nudMercadoLibre3MSI
+            // nudMercadolibre3MSI
             // 
-            this.nudMercadoLibre3MSI.DecimalPlaces = 2;
-            this.nudMercadoLibre3MSI.Increment = new decimal(new int[] {
+            this.nudMercadolibre3MSI.DecimalPlaces = 2;
+            this.nudMercadolibre3MSI.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.nudMercadoLibre3MSI.Location = new System.Drawing.Point(409, 316);
-            this.nudMercadoLibre3MSI.Maximum = new decimal(new int[] {
+            this.nudMercadolibre3MSI.Location = new System.Drawing.Point(409, 316);
+            this.nudMercadolibre3MSI.Maximum = new decimal(new int[] {
             50,
             0,
             0,
             0});
-            this.nudMercadoLibre3MSI.Name = "nudMercadoLibre3MSI";
-            this.nudMercadoLibre3MSI.Size = new System.Drawing.Size(71, 20);
-            this.nudMercadoLibre3MSI.TabIndex = 25;
-            this.nudMercadoLibre3MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudMercadolibre3MSI.Name = "nudMercadolibre3MSI";
+            this.nudMercadolibre3MSI.Size = new System.Drawing.Size(71, 20);
+            this.nudMercadolibre3MSI.TabIndex = 25;
+            this.nudMercadolibre3MSI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // nudSenor3MSI
             // 
@@ -976,20 +976,20 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.nudClip3MSI);
             this.Controls.Add(this.nudMercadopago3MSI);
-            this.Controls.Add(this.nudMercadoLibre3MSI);
+            this.Controls.Add(this.nudMercadolibre3MSI);
             this.Controls.Add(this.nudSenor3MSI);
             this.Controls.Add(this.nudPaypal3MSI);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbClipIVA);
             this.Controls.Add(this.nudClipFija);
             this.Controls.Add(this.nudClipPorciento);
-            this.Controls.Add(this.nudMercadopagoIVA);
+            this.Controls.Add(this.cbMercadopagoIVA);
             this.Controls.Add(this.nudMercadopagoFija);
             this.Controls.Add(this.nudMercadopagoPorciento);
             this.Controls.Add(this.cbMercadolibreIVA);
-            this.Controls.Add(this.nudMercadoLibreFija);
+            this.Controls.Add(this.nudMercadolibreFija);
             this.Controls.Add(this.nudMercadolibrePorciento);
-            this.Controls.Add(this.nudSenorIVA);
+            this.Controls.Add(this.cbSenorIVA);
             this.Controls.Add(this.nudSenorFija);
             this.Controls.Add(this.nudSenorPorciento);
             this.Controls.Add(this.cbPaypalIVA);
@@ -1011,7 +1011,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPaypalFija)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSenorFija)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSenorPorciento)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMercadoLibreFija)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMercadolibreFija)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMercadolibrePorciento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMercadopagoFija)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMercadopagoPorciento)).EndInit();
@@ -1019,7 +1019,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudClipPorciento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudClip3MSI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMercadopago3MSI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMercadoLibre3MSI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMercadolibre3MSI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSenor3MSI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPaypal3MSI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudClip6MSI)).EndInit();
@@ -1060,13 +1060,13 @@
         private System.Windows.Forms.NumericUpDown nudPaypalPorciento;
         private System.Windows.Forms.NumericUpDown nudPaypalFija;
         private System.Windows.Forms.CheckBox cbPaypalIVA;
-        private System.Windows.Forms.CheckBox nudSenorIVA;
+        private System.Windows.Forms.CheckBox cbSenorIVA;
         private System.Windows.Forms.NumericUpDown nudSenorFija;
         private System.Windows.Forms.NumericUpDown nudSenorPorciento;
         private System.Windows.Forms.CheckBox cbMercadolibreIVA;
-        private System.Windows.Forms.NumericUpDown nudMercadoLibreFija;
+        private System.Windows.Forms.NumericUpDown nudMercadolibreFija;
         private System.Windows.Forms.NumericUpDown nudMercadolibrePorciento;
-        private System.Windows.Forms.CheckBox nudMercadopagoIVA;
+        private System.Windows.Forms.CheckBox cbMercadopagoIVA;
         private System.Windows.Forms.NumericUpDown nudMercadopagoFija;
         private System.Windows.Forms.NumericUpDown nudMercadopagoPorciento;
         private System.Windows.Forms.CheckBox cbClipIVA;
@@ -1074,7 +1074,7 @@
         private System.Windows.Forms.NumericUpDown nudClipPorciento;
         private System.Windows.Forms.NumericUpDown nudClip3MSI;
         private System.Windows.Forms.NumericUpDown nudMercadopago3MSI;
-        private System.Windows.Forms.NumericUpDown nudMercadoLibre3MSI;
+        private System.Windows.Forms.NumericUpDown nudMercadolibre3MSI;
         private System.Windows.Forms.NumericUpDown nudSenor3MSI;
         private System.Windows.Forms.NumericUpDown nudPaypal3MSI;
         private System.Windows.Forms.Label label5;

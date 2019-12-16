@@ -334,5 +334,125 @@ namespace PaymentFeeCalculator.Properties {
                 this["TasaIVA"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool PaypalAplicaIVA {
+            get {
+                return ((bool)(this["PaypalAplicaIVA"]));
+            }
+            set {
+                this["PaypalAplicaIVA"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SenorAplicaIVA {
+            get {
+                return ((bool)(this["SenorAplicaIVA"]));
+            }
+            set {
+                this["SenorAplicaIVA"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MercadolibreAplicaIVA {
+            get {
+                return ((bool)(this["MercadolibreAplicaIVA"]));
+            }
+            set {
+                this["MercadolibreAplicaIVA"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool MercadopagoAplicaIVA {
+            get {
+                return ((bool)(this["MercadopagoAplicaIVA"]));
+            }
+            set {
+                this["MercadopagoAplicaIVA"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ClipAplicaIVA {
+            get {
+                return ((bool)(this["ClipAplicaIVA"]));
+            }
+            set {
+                this["ClipAplicaIVA"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal MercadolibreFija {
+            get {
+                return ((decimal)(this["MercadolibreFija"]));
+            }
+            set {
+                this["MercadolibreFija"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal Mercadolibre3MSI {
+            get {
+                return ((decimal)(this["Mercadolibre3MSI"]));
+            }
+            set {
+                this["Mercadolibre3MSI"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal Mercadolibre6MSI {
+            get {
+                return ((decimal)(this["Mercadolibre6MSI"]));
+            }
+            set {
+                this["Mercadolibre6MSI"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal Mercadolibre9MSI {
+            get {
+                return ((decimal)(this["Mercadolibre9MSI"]));
+            }
+            set {
+                this["Mercadolibre9MSI"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal Mercadolibre12MSI {
+            get {
+                return ((decimal)(this["Mercadolibre12MSI"]));
+            }
+            set {
+                this["Mercadolibre12MSI"] = value;
+            }
+        }
     }
 }
