@@ -43,11 +43,11 @@ namespace PaymentFeeCalculator
             Properties.Settings.Default.SenorAplicaIVA = cbSenorIVA.Checked;
 
             Properties.Settings.Default.MercadolibrePorciento = nudMercadolibrePorciento.Value;
-            Properties.Settings.Default.MercadolibreFija = nudMercadopagoFija.Value;
-            Properties.Settings.Default.Mercadolibre3MSI = nudMercadopago3MSI.Value;
-            Properties.Settings.Default.Mercadolibre6MSI = nudMercadopago6MSI.Value;
-            Properties.Settings.Default.Mercadolibre9MSI = nudMercadopago9MSI.Value;
-            Properties.Settings.Default.Mercadolibre12MSI = nudMercadopago12MSI.Value;
+            Properties.Settings.Default.MercadolibreFija = nudMercadolibreFija.Value;
+            Properties.Settings.Default.Mercadolibre3MSI = nudMercadolibre3MSI.Value;
+            Properties.Settings.Default.Mercadolibre6MSI = nudMercadolibre6MSI.Value;
+            Properties.Settings.Default.Mercadolibre9MSI = nudMercadolibre9MSI.Value;
+            Properties.Settings.Default.Mercadolibre12MSI = nudMercadolibre12MSI.Value;
             Properties.Settings.Default.MercadolibreAplicaIVA = cbMercadolibreIVA.Checked;
 
             nudMercadopagoPorciento.Value = Properties.Settings.Default.MercadopagoPorciento;

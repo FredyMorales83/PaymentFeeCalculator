@@ -76,7 +76,7 @@ namespace PaymentFeeCalculator
 
             if (cbMSI.Checked)
             {
-                txtCantidadDeseada.Minimum = 400;
+                txtCantidadDeseada.Minimum = 500;
 
                 if (rbTresMSI.Checked)
                 {
