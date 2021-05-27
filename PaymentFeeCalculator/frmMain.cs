@@ -29,31 +29,31 @@ namespace PaymentFeeCalculator
 
         private void btnPaypal_Click(object sender, EventArgs e)
         {
-            var paypalFees = Fee.GetPaypalFees();
+            var paypalFees = Fee.GetFees(Providers.Paypal);
             SetProviderFees(paypalFees, sender, e, true);
         }
 
         private void btnSenorPago_Click(object sender, EventArgs e)
         {
-            var senorPagoFees = Fee.GetSenorPagoFees();
+            var senorPagoFees = Fee.GetFees(Providers.SenorPago);
             SetProviderFees(senorPagoFees, sender, e, true);
         }
 
         private void btnMercadoLibre_Click(object sender, EventArgs e)
         {
-            var mercadoLibreFees = Fee.GetMercadoLibreFees();
+            var mercadoLibreFees = Fee.GetFees(Providers.MercadoLibre);
             SetProviderFees(mercadoLibreFees, sender, e, false);
         }
 
         private void btnMercadoPago_Click(object sender, EventArgs e)
         {
-            var mercadoPagoFees = Fee.GetMercadoPagoFees();
+            var mercadoPagoFees = Fee.GetFees(Providers.MercadoPago);
             SetProviderFees(mercadoPagoFees, sender, e, true);
         }
 
         private void btnClip_Click(object sender, EventArgs e)
         {
-            var clipFees = Fee.GetClipFees();
+            var clipFees = Fee.GetFees(Providers.Clip);
             SetProviderFees(clipFees, sender, e, true);
         }
 
