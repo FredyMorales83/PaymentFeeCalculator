@@ -64,6 +64,7 @@
             this.txtTarifaPorcentaje = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtTasaIva = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -423,6 +424,7 @@
             // 
             // gbComisiones
             // 
+            this.gbComisiones.Controls.Add(this.txtTasaIva);
             this.gbComisiones.Controls.Add(this.panelMSI);
             this.gbComisiones.Controls.Add(this.cbMSI);
             this.gbComisiones.Controls.Add(this.label9);
@@ -554,6 +556,14 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Porcentaje del proveedor (%): ";
             // 
+            // txtTasaIva
+            // 
+            this.txtTasaIva.Location = new System.Drawing.Point(298, 78);
+            this.txtTasaIva.Name = "txtTasaIva";
+            this.txtTasaIva.ReadOnly = true;
+            this.txtTasaIva.Size = new System.Drawing.Size(75, 20);
+            this.txtTasaIva.TabIndex = 16;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -634,6 +644,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSystemConfiguration;
+        private System.Windows.Forms.TextBox txtTasaIva;
     }
 }
 

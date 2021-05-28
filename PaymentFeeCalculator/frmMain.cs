@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FeeDataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,36 +25,35 @@ namespace PaymentFeeCalculator
         private void frmMain_Load(object sender, EventArgs e)
         {
             panelMSI.Enabled = false;
-            porcentajeIVA = Properties.Settings.Default.TasaIVA;
         }
 
-        private void btnPaypal_Click(object sender, EventArgs e)
+        private async void btnPaypal_Click(object sender, EventArgs e)
         {
-            var paypalFees = Fee.GetFees(Providers.Paypal);
+            var paypalFees = await FeeServices.GetFees(Providers.Paypal);
             SetProviderFees(paypalFees, sender, e, true);
         }
 
-        private void btnSenorPago_Click(object sender, EventArgs e)
+        private async void btnSenorPago_Click(object sender, EventArgs e)
         {
-            var senorPagoFees = Fee.GetFees(Providers.SenorPago);
+            var senorPagoFees = await FeeServices.GetFees(Providers.SenorPago);
             SetProviderFees(senorPagoFees, sender, e, true);
         }
 
-        private void btnMercadoLibre_Click(object sender, EventArgs e)
+        private async void btnMercadoLibre_Click(object sender, EventArgs e)
         {
-            var mercadoLibreFees = Fee.GetFees(Providers.MercadoLibre);
+            var mercadoLibreFees = await FeeServices.GetFees(Providers.MercadoLibre);
             SetProviderFees(mercadoLibreFees, sender, e, false);
         }
 
-        private void btnMercadoPago_Click(object sender, EventArgs e)
+        private async void btnMercadoPago_Click(object sender, EventArgs e)
         {
-            var mercadoPagoFees = Fee.GetFees(Providers.MercadoPago);
+            var mercadoPagoFees = await  FeeServices.GetFees(Providers.MercadoPago);
             SetProviderFees(mercadoPagoFees, sender, e, true);
         }
 
-        private void btnClip_Click(object sender, EventArgs e)
+        private async void btnClip_Click(object sender, EventArgs e)
         {
-            var clipFees = Fee.GetFees(Providers.Clip);
+            var clipFees = await  FeeServices.GetFees(Providers.Clip);
             SetProviderFees(clipFees, sender, e, true);
         }
 
@@ -110,7 +110,7 @@ namespace PaymentFeeCalculator
 
             decimal iva = AplicaIVA ? (porcentajeIVA / 100) : 0;
 
-            comisionAPagar = Fee.ReverseFeeCalculator(txtCantidadDeseada.Value, porcentajeComision, tarifaFija, iva);
+            comisionAPagar = FeeServices.ReverseFeeCalculator(txtCantidadDeseada.Value, porcentajeComision, tarifaFija, iva);
 
             txtCantidadACobrar.Value = comisionAPagar;
             txtCantidadPagada.Value = comisionAPagar;
@@ -158,7 +158,7 @@ namespace PaymentFeeCalculator
 
             decimal iva = AplicaIVA ? (porcentajeIVA / 100) : 0;
 
-            comisionAPagar = Fee.FeeCalculator(txtCantidadPagada.Value, porcentajeComision, tarifaFija, iva);
+            comisionAPagar = FeeServices.FeeCalculator(txtCantidadPagada.Value, porcentajeComision, tarifaFija, iva);
 
             txtComisionAPagar.Value = comisionAPagar;
 
@@ -173,7 +173,7 @@ namespace PaymentFeeCalculator
                 e.Handled = true;
             }
 
-            // only allow one decimal point
+            // Only allow one decimal point
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
@@ -193,7 +193,7 @@ namespace PaymentFeeCalculator
             txtCantidadDeseada_ValueChanged(sender, e);
         }
 
-        private void SetProviderFees((decimal providerPorciento, decimal providerFija, decimal provider3, decimal provider6, decimal provider9, decimal provider12, bool providerAplicaIVA) providerFees, object sender, EventArgs e, bool EnableMSI)
+        private void SetProviderFees((decimal providerPorciento, decimal providerFija, decimal provider3, decimal provider6, decimal provider9, decimal provider12, bool providerAplicaIVA, decimal tasaIVA) providerFees, object sender, EventArgs e, bool EnableMSI)
         {
             txtTarifaPorcentaje.Text = providerFees.providerPorciento.ToString();
             txtTarifaFija.Text = providerFees.providerFija.ToString();
@@ -206,6 +206,8 @@ namespace PaymentFeeCalculator
             rbDoceMSI.Text = $"12 MSI = {providerFees.provider12}%";
             rbDoceMSI.Tag = providerFees.provider12;
             AplicaIVA = providerFees.providerAplicaIVA;
+            txtTasaIva.Text = string.Format("{0:0.0%}", providerFees.tasaIVA / 100);
+            porcentajeIVA = providerFees.tasaIVA;
             cbMSI.Enabled = EnableMSI;
             txtCantidadPagada_ValueChanged(sender, e);
             txtCantidadDeseada_ValueChanged(sender, e);

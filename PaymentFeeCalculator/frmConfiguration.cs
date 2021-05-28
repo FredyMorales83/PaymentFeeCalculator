@@ -1,8 +1,10 @@
-﻿using System;
+﻿using FeeDataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +13,7 @@ using System.Windows.Forms;
 namespace PaymentFeeCalculator
 {
     public partial class frmConfiguration : Form
-    {
+    {        
         public frmConfiguration()
         {
             InitializeComponent();
@@ -22,51 +24,69 @@ namespace PaymentFeeCalculator
             SaveFeeConfiguration();
         }
 
-        private void SaveFeeConfiguration()
+        private async void SaveFeeConfiguration()
         {
-            Properties.Settings.Default.TasaIVA = nudTasaIVA.Value;
+            var tasaIVA = nudTasaIVA.Value.ToString();
 
-            Properties.Settings.Default.PaypalPorciento = nudPaypalPorciento.Value;
-            Properties.Settings.Default.PaypalFija = nudPaypalFija.Value;
-            Properties.Settings.Default.Paypal3MSI = nudPaypal3MSI.Value;
-            Properties.Settings.Default.Paypal6MSI = nudPaypal6MSI.Value;
-            Properties.Settings.Default.Paypal9MSI = nudPaypal9MSI.Value;
-            Properties.Settings.Default.Paypal12MSI = nudPaypal12MSI.Value;
-            Properties.Settings.Default.PaypalAplicaIVA = cbPaypalIVA.Checked;
+            var paypal = await FeeServices.GetFeesByProviderNameAsync(Providers.Paypal.ToString());
 
-            Properties.Settings.Default.SenorPorciento = nudSenorPorciento.Value;
-            Properties.Settings.Default.SenorFija = nudSenorFija.Value;
-            Properties.Settings.Default.Senor3MSI = nudSenor3MSI.Value;
-            Properties.Settings.Default.Senor6MSI = nudSenor6MSI.Value;
-            Properties.Settings.Default.Senor9MSI = nudSenor9MSI.Value;
-            Properties.Settings.Default.Senor12MSI = nudSenor12MSI.Value;
-            Properties.Settings.Default.SenorAplicaIVA = cbSenorIVA.Checked;
+            paypal.ProviderFixedPercentage = nudPaypalPorciento.Value.ToString();
+            paypal.ProviderFixedFee = nudPaypalFija.Value.ToString();
+            paypal.Provider3MsiFee = nudPaypal3MSI.Value.ToString();
+            paypal.Provider6MsiFee = nudPaypal6MSI.Value.ToString();
+            paypal.Provider9MsiFee = nudPaypal9MSI.Value.ToString();
+            paypal.Provider12MsiFee = nudPaypal12MSI.Value.ToString().ToString();
+            paypal.ApplyTax = Convert.ToInt32(cbPaypalIVA.Checked);
+            paypal.ProviderIva = tasaIVA;
 
-            Properties.Settings.Default.MercadolibrePorciento = nudMercadolibrePorciento.Value;
-            Properties.Settings.Default.MercadolibreFija = nudMercadolibreFija.Value;
-            Properties.Settings.Default.Mercadolibre3MSI = nudMercadolibre3MSI.Value;
-            Properties.Settings.Default.Mercadolibre6MSI = nudMercadolibre6MSI.Value;
-            Properties.Settings.Default.Mercadolibre9MSI = nudMercadolibre9MSI.Value;
-            Properties.Settings.Default.Mercadolibre12MSI = nudMercadolibre12MSI.Value;
-            Properties.Settings.Default.MercadolibreAplicaIVA = cbMercadolibreIVA.Checked;
+            var senor = await FeeServices.GetFeesByProviderNameAsync(Providers.SenorPago.ToString());
 
-            nudMercadopagoPorciento.Value = Properties.Settings.Default.MercadopagoPorciento;
-            Properties.Settings.Default.MercadopagoFija = nudMercadopagoFija.Value;
-            Properties.Settings.Default.Mercadopago3MSI = nudMercadopago3MSI.Value;
-            Properties.Settings.Default.Mercadopago6MSI = nudMercadopago6MSI.Value;
-            Properties.Settings.Default.Mercadopago9MSI = nudMercadopago9MSI.Value;
-            Properties.Settings.Default.Mercadopago12MSI = nudMercadopago12MSI.Value;
-            Properties.Settings.Default.MercadopagoAplicaIVA = cbMercadopagoIVA.Checked;
+            senor.ProviderFixedPercentage = nudSenorPorciento.Value.ToString();
+            senor.ProviderFixedFee = nudSenorFija.Value.ToString();
+            senor.Provider3MsiFee = nudSenor3MSI.Value.ToString();
+            senor.Provider6MsiFee = nudSenor6MSI.Value.ToString();
+            senor.Provider9MsiFee = nudSenor9MSI.Value.ToString();
+            senor.Provider12MsiFee = nudSenor12MSI.Value.ToString();
+            senor.ApplyTax = Convert.ToInt32(cbSenorIVA.Checked);
+            senor.ProviderIva = tasaIVA;
 
-            Properties.Settings.Default.ClipPorciento = nudClipPorciento.Value;
-            Properties.Settings.Default.ClipFija = nudClipFija.Value;
-            Properties.Settings.Default.Clip3MSI = nudClip3MSI.Value;
-            Properties.Settings.Default.Clip6MSI = nudClip6MSI.Value;
-            Properties.Settings.Default.Clip9MSI = nudClip9MSI.Value;
-            Properties.Settings.Default.Clip12MSI = nudClip12MSI.Value;
-            Properties.Settings.Default.ClipAplicaIVA = cbClipIVA.Checked;
+            var mercadoLibre = await FeeServices.GetFeesByProviderNameAsync(Providers.MercadoLibre.ToString());
 
-            Properties.Settings.Default.Save();
+            mercadoLibre.ProviderFixedPercentage = nudMercadolibrePorciento.Value.ToString();
+            mercadoLibre.ProviderFixedFee = nudMercadolibreFija.Value.ToString();
+            mercadoLibre.Provider3MsiFee = nudMercadolibre3MSI.Value.ToString();
+            mercadoLibre.Provider6MsiFee = nudMercadolibre6MSI.Value.ToString();
+            mercadoLibre.Provider9MsiFee = nudMercadolibre9MSI.Value.ToString();
+            mercadoLibre.Provider12MsiFee = nudMercadolibre12MSI.Value.ToString();
+            mercadoLibre.ApplyTax = Convert.ToInt32(cbMercadolibreIVA.Checked);
+            mercadoLibre.ProviderIva = tasaIVA;
+
+            var mercadoPago = await FeeServices.GetFeesByProviderNameAsync(Providers.MercadoPago.ToString());
+
+            mercadoPago.ProviderFixedPercentage = nudMercadopagoPorciento.Value.ToString();
+            mercadoPago.ProviderFixedFee = nudMercadopagoFija.Value.ToString();
+            mercadoPago.Provider3MsiFee = nudMercadopago3MSI.Value.ToString();
+            mercadoPago.Provider6MsiFee = nudMercadopago6MSI.Value.ToString();
+            mercadoPago.Provider9MsiFee = nudMercadopago9MSI.Value.ToString();
+            mercadoPago.Provider12MsiFee = nudMercadopago12MSI.Value.ToString();
+            mercadoPago.ApplyTax = Convert.ToInt32(cbMercadopagoIVA.Checked);
+            mercadoPago.ProviderIva = tasaIVA;
+
+            var clip = await FeeServices.GetFeesByProviderNameAsync(Providers.Clip.ToString());
+
+            clip.ProviderFixedPercentage = nudClipPorciento.Value.ToString();
+            clip.ProviderFixedFee = nudClipFija.Value.ToString();
+            clip.Provider3MsiFee = nudClip3MSI.Value.ToString();
+            clip.Provider6MsiFee = nudClip6MSI.Value.ToString();
+            clip.Provider9MsiFee = nudClip9MSI.Value.ToString();
+            clip.Provider12MsiFee = nudClip12MSI.Value.ToString();
+            clip.ApplyTax = Convert.ToInt32(cbClipIVA.Checked);
+            clip.ProviderIva = tasaIVA;
+
+            var listFees = new List<Fee>() { paypal, senor, mercadoLibre, mercadoPago, clip };
+
+            await FeeServices.SaveFees(listFees);
+
             MessageBox.Show("Configuracion guardada satisfactoriamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -75,63 +95,61 @@ namespace PaymentFeeCalculator
             ReadFeeConfiguration();
         }
 
-        private void ReadFeeConfiguration()
+        private async void ReadFeeConfiguration()
         {
-            nudTasaIVA.Value = Properties.Settings.Default.TasaIVA;
+            var fees = await FeeServices.GetAllFeesAsync();
 
-            nudPaypalPorciento.Value = Properties.Settings.Default.PaypalPorciento;
-            nudPaypalFija.Value = Properties.Settings.Default.PaypalFija;
-            nudPaypal3MSI.Value = Properties.Settings.Default.Paypal3MSI;
-            nudPaypal6MSI.Value = Properties.Settings.Default.Paypal6MSI;
-            nudPaypal9MSI.Value = Properties.Settings.Default.Paypal9MSI;
-            nudPaypal12MSI.Value = Properties.Settings.Default.Paypal12MSI;
-            cbPaypalIVA.Checked = Properties.Settings.Default.PaypalAplicaIVA;
+            nudTasaIVA.Value = Convert.ToDecimal(fees.FirstOrDefault().ProviderIva);
 
-            nudSenorPorciento.Value = Properties.Settings.Default.SenorPorciento;
-            nudSenorFija.Value = Properties.Settings.Default.SenorFija;
-            nudSenor3MSI.Value = Properties.Settings.Default.Senor3MSI;
-            nudSenor6MSI.Value = Properties.Settings.Default.Senor6MSI;
-            nudSenor9MSI.Value = Properties.Settings.Default.Senor9MSI;
-            nudSenor12MSI.Value = Properties.Settings.Default.Senor12MSI;
-            cbSenorIVA.Checked = Properties.Settings.Default.SenorAplicaIVA;
+            var paypal = fees.Where(p => p.ProviderName.Equals(Providers.Paypal.ToString())).FirstOrDefault();
 
-            nudMercadolibrePorciento.Value = Properties.Settings.Default.MercadolibrePorciento;
-            nudMercadolibreFija.Value = Properties.Settings.Default.MercadopagoFija;
-            nudMercadolibre3MSI.Value = Properties.Settings.Default.Mercadopago3MSI;
-            nudMercadolibre6MSI.Value = Properties.Settings.Default.Mercadopago6MSI;
-            nudMercadolibre9MSI.Value = Properties.Settings.Default.Mercadopago9MSI;
-            nudMercadolibre12MSI.Value = Properties.Settings.Default.Mercadopago12MSI;
-            cbMercadolibreIVA.Checked = Properties.Settings.Default.MercadopagoAplicaIVA;
+            nudPaypalPorciento.Value = Convert.ToDecimal(paypal.ProviderFixedPercentage);
+            nudPaypalFija.Value = Convert.ToDecimal(paypal.ProviderFixedFee);
+            nudPaypal3MSI.Value = Convert.ToDecimal(paypal.Provider3MsiFee);
+            nudPaypal6MSI.Value = Convert.ToDecimal(paypal.Provider6MsiFee);
+            nudPaypal9MSI.Value = Convert.ToDecimal(paypal.Provider9MsiFee);
+            nudPaypal12MSI.Value = Convert.ToDecimal(paypal.Provider12MsiFee);
+            cbPaypalIVA.Checked = Convert.ToBoolean(paypal.ApplyTax);
 
-            nudMercadopagoPorciento.Value = Properties.Settings.Default.MercadopagoPorciento;
-            nudMercadopagoFija.Value = Properties.Settings.Default.MercadopagoFija;
-            nudMercadopago3MSI.Value = Properties.Settings.Default.Mercadopago3MSI;
-            nudMercadopago6MSI.Value = Properties.Settings.Default.Mercadopago6MSI;
-            nudMercadopago9MSI.Value = Properties.Settings.Default.Mercadopago9MSI;
-            nudMercadopago12MSI.Value = Properties.Settings.Default.Mercadopago12MSI;
-            cbMercadopagoIVA.Checked = Properties.Settings.Default.MercadopagoAplicaIVA;
+            var senor = fees.Where(p => p.ProviderName.Equals(Providers.SenorPago.ToString())).FirstOrDefault();
 
-            nudClipPorciento.Value = Properties.Settings.Default.ClipPorciento;
-            nudClipFija.Value = Properties.Settings.Default.ClipFija;
-            nudClip3MSI.Value = Properties.Settings.Default.Clip3MSI;
-            nudClip6MSI.Value = Properties.Settings.Default.Clip6MSI;
-            nudClip9MSI.Value = Properties.Settings.Default.Clip9MSI;
-            nudClip12MSI.Value = Properties.Settings.Default.Clip12MSI;
-            cbClipIVA.Checked = Properties.Settings.Default.ClipAplicaIVA;
-        }
+            nudSenorPorciento.Value = Convert.ToDecimal(senor.ProviderFixedPercentage);
+            nudSenorFija.Value = Convert.ToDecimal(senor.ProviderFixedFee);
+            nudSenor3MSI.Value = Convert.ToDecimal(senor.Provider3MsiFee);
+            nudSenor6MSI.Value = Convert.ToDecimal(senor.Provider6MsiFee);
+            nudSenor9MSI.Value = Convert.ToDecimal(senor.Provider9MsiFee);
+            nudSenor12MSI.Value = Convert.ToDecimal(senor.Provider12MsiFee);
+            cbSenorIVA.Checked = Convert.ToBoolean(senor.ApplyTax);
 
-        public (decimal PaypalPorciento, decimal PaypalFija, decimal Paypal3, decimal Paypal6, 
-            decimal Paypal9, decimal Paypal12, bool PaypalIVA) GetPaypalFees()
-        {
+            var mercadoLibre = fees.Where(p => p.ProviderName.Equals(Providers.MercadoLibre.ToString())).FirstOrDefault();
 
-            return (
-                Properties.Settings.Default.PaypalPorciento,
-                Properties.Settings.Default.PaypalFija,
-                Properties.Settings.Default.Paypal3MSI,
-                Properties.Settings.Default.Paypal6MSI,
-                Properties.Settings.Default.Paypal9MSI,
-                Properties.Settings.Default.Paypal12MSI,
-                Properties.Settings.Default.PaypalAplicaIVA);
+            nudMercadolibrePorciento.Value = Convert.ToDecimal(mercadoLibre.ProviderFixedPercentage);
+            nudMercadolibreFija.Value = Convert.ToDecimal(mercadoLibre.ProviderFixedFee);
+            nudMercadolibre3MSI.Value = Convert.ToDecimal(mercadoLibre.Provider3MsiFee);
+            nudMercadolibre6MSI.Value = Convert.ToDecimal(mercadoLibre.Provider6MsiFee);
+            nudMercadolibre9MSI.Value = Convert.ToDecimal(mercadoLibre.Provider9MsiFee);
+            nudMercadolibre12MSI.Value = Convert.ToDecimal(mercadoLibre.Provider12MsiFee);
+            cbMercadolibreIVA.Checked = Convert.ToBoolean(mercadoLibre.ApplyTax);
+
+            var mercadoPago = fees.Where(p => p.ProviderName.Equals(Providers.MercadoPago.ToString())).FirstOrDefault();
+
+            nudMercadopagoPorciento.Value = Convert.ToDecimal(mercadoPago.ProviderFixedPercentage);
+            nudMercadopagoFija.Value = Convert.ToDecimal(mercadoPago.ProviderFixedFee);
+            nudMercadopago3MSI.Value = Convert.ToDecimal(mercadoPago.Provider3MsiFee);
+            nudMercadopago6MSI.Value = Convert.ToDecimal(mercadoPago.Provider6MsiFee);
+            nudMercadopago9MSI.Value = Convert.ToDecimal(mercadoPago.Provider9MsiFee);
+            nudMercadopago12MSI.Value = Convert.ToDecimal(mercadoPago.Provider12MsiFee);
+            cbMercadopagoIVA.Checked = Convert.ToBoolean(mercadoPago.ApplyTax);
+
+            var clip = fees.Where(p => p.ProviderName.Equals(Providers.Clip.ToString())).FirstOrDefault();
+
+            nudClipPorciento.Value = Convert.ToDecimal(clip.ProviderFixedPercentage);
+            nudClipFija.Value = Convert.ToDecimal(clip.ProviderFixedFee);
+            nudClip3MSI.Value = Convert.ToDecimal(clip.Provider3MsiFee);
+            nudClip6MSI.Value = Convert.ToDecimal(clip.Provider6MsiFee);
+            nudClip9MSI.Value = Convert.ToDecimal(clip.Provider9MsiFee);
+            nudClip12MSI.Value = Convert.ToDecimal(clip.Provider12MsiFee);
+            cbClipIVA.Checked = Convert.ToBoolean(clip.ApplyTax);
         }
     }
 }
